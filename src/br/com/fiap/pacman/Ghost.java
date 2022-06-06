@@ -11,9 +11,9 @@ public class Ghost extends GameObject {
 		int newX = getX();
 
 		if (direction == 0)
-			newY = getY() - 10;
+			newX = getX() - 10;
 		else if (direction == 90)
-			newX = getX() + 10;
+			newY = getY() + 10;
 		else if (direction == 180)
 			newY = getY() + 10;
 		else if (direction == 270)
@@ -28,14 +28,15 @@ public class Ghost extends GameObject {
 	}
 
 	public void move() {
+		direction = (int) (Math.round(Math.random()*3)*90);
 		if (direction == 0)
 			setX(getX() - 10);
 		else if (direction == 90)
 			setY(getY() + 10);
 		else if (direction == 180)
-			setX(getX() + 10);
+			setY(getY() + 10);
 		else if (direction == 270)
-			setY(getY() - 10);
+			setX(getX() - 10);
 	}
 
 	// CONSTRUCTORS
