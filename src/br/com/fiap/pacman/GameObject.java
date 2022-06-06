@@ -3,38 +3,38 @@ package br.com.fiap.pacman;
 public class GameObject {
 
 	// ATTRIBUTES
-	private int X;
-	private int Y;
+	private int x;
+	private int y;
 	private int screenSize;
 
 	// CONSTRUCTORS
 	public GameObject() {
 	}
 
-	public GameObject(int X, int Y) {
-		if (X >= 0)
-			this.X = X;
-		if (Y >= 0)
-			this.Y = Y;
+	public GameObject(int x, int y) {
+		if (x >= 0)
+			this.x = x;
+		if (y >= 0)
+			this.y = y;
 	}
 
 	// GETS AND SETS
 	public int getX() {
-		return X;
+		return x;
 	}
 
 	public void setX(int x) {
 		if (x >= 0)
-			X = x;
+			this.x = x;
 	}
 
 	public int getY() {
-		return Y;
+		return y;
 	}
 
 	public void setY(int y) {
 		if (y >= 0)
-			Y = y;
+			this.y = y;
 	}
 
 	public int getScreenSize() {
