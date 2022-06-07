@@ -28,7 +28,7 @@ public class Game extends JFrame implements KeyListener {
 	private JLabel imgBooster = new JLabel(new ImageIcon("src/images/booster.png"));
 
 	private final int SCREENSIZE = 600;
-	private int speed = 80;
+	private int speed = 95;
 
 	public static void main(String[] args) {
 		new Game().init();
@@ -70,7 +70,7 @@ public class Game extends JFrame implements KeyListener {
 		updateLocation(imgGhost4, ghost4);
 		updateLocation(imgBomb, bomb);
 		updateLocation(imgBooster, booster);
-		setTitle("Life: " + player.getLife());
+		setTitle("Life: " + player.getLife() + "    Invincible: " + player.getInvincibleTime());
 		SwingUtilities.updateComponentTreeUI(this);
 
 	}
@@ -87,12 +87,16 @@ public class Game extends JFrame implements KeyListener {
 		while (player.getLife() > 0) {
 
 			// MÉTODOS DE MOVIMENTAÇÃO E COLISÃO
-
-			player.move();
-			ghost1.move();
-			ghost2.move();
-			ghost3.move();
-			ghost4.move();
+			if (player.canMove() == true)
+				player.move();
+			if (ghost1.canMove() == true)
+				ghost1.move();
+			if (ghost2.canMove() == true)	
+				ghost2.move();
+			if (ghost3.canMove() == true)
+				ghost3.move();
+			if (ghost4.canMove() == true)
+				ghost4.move();
 
 			// BOOSTER
 			if (player.getX() == booster.getX() && player.getY() == booster.getY()) {
